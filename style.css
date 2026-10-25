@@ -565,19 +565,22 @@ a, button, label { touch-action: manipulation; }
   min-height: 560px;
   overflow: hidden;
   background: var(--surface);
+  container-type: inline-size;
 }
 
+/* The mock Mac is sized in em, so one font size scales all of it: 14px on a laptop-sized stage,
+   growing with the stage on bigger monitors, capped by the screen height so the article still fits */
 .mac {
   position: absolute;
-  top: 72px;
+  top: 5.143em;
   bottom: 0;
-  left: 64px;
+  left: 4.571em;
   display: flex;
   flex-direction: column;
-  width: 560px;
+  width: 40em;
   background: #e9e9ec;
   color: #1d1d1f;
-  font-size: 14px;
+  font-size: max(14px, min(2.07cqw, 1.55svh));
   line-height: 1.5;
   letter-spacing: 0;
 }
@@ -586,38 +589,38 @@ a, button, label { touch-action: manipulation; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 28px;
-  padding: 0 12px;
+  height: 2.154em;
+  padding: 0 .923em;
   background: #f4f4f6;
-  font-size: 13px;
+  font-size: .929em;
   font-weight: 500;
 }
 
-.mac-status { display: flex; align-items: center; gap: 10px; }
-.mac-sun { width: 16px; height: 16px; fill: currentColor; }
+.mac-status { display: flex; align-items: center; gap: .769em; }
+.mac-sun { width: 1.231em; height: 1.231em; fill: currentColor; }
 .mac-kelvin::after { content: var(--kelvin); }
 
-.mac-window { flex: 1; margin: 24px 24px 0; overflow: hidden; background: #fff; border-radius: 10px 10px 0 0; }
+.mac-window { flex: 1; margin: 1.714em 1.714em 0; overflow: hidden; background: #fff; border-radius: .714em .714em 0 0; }
 
-.mac-titlebar { display: flex; gap: 8px; padding: 12px 14px; }
-.mac-titlebar i { width: 12px; height: 12px; border-radius: 50%; background: #d4d4d8; }
+.mac-titlebar { display: flex; gap: .571em; padding: .857em 1em; }
+.mac-titlebar i { width: .857em; height: .857em; border-radius: 50%; background: #d4d4d8; }
 
-.mac-doc { padding: 16px 40px 48px; }
-.mac-doc p { margin: 0 0 14px; font-size: 14px; }
-.mac-doc .mac-meta { color: #6e6e73; font-size: 13px; }
-.mac-doc .mac-title { font-size: 28px; font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
+.mac-doc { padding: 1.143em 2.857em 3.429em; }
+.mac-doc p { margin: 0 0 1em; font-size: 1em; }
+.mac-doc .mac-meta { color: #6e6e73; font-size: .929em; }
+.mac-doc .mac-title { font-size: 2em; font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
 
 .mac-sunset {
   position: relative;
-  height: 150px;
-  margin: 6px 0 16px;
+  height: 10.714em;
+  margin: .429em 0 1.143em;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: .571em;
   background: #7cb4e6;
 }
 
 .mac-sunset::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 40%; background: #3d4a2d; }
-.mac-sunset span { position: absolute; left: 50%; bottom: 30%; width: 64px; height: 64px; margin-left: -32px; border-radius: 50%; background: #ffe7a3; }
+.mac-sunset span { position: absolute; left: 50%; bottom: 30%; width: 4.571em; height: 4.571em; margin-left: -2.286em; border-radius: 50%; background: #ffe7a3; }
 
 .mac::after,
 .page-tint {
@@ -977,6 +980,7 @@ a, button, label { touch-action: manipulation; }
   .temps input:checked + span { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .25em; }
   .demo-stage { height: 70svh; min-height: 480px; margin-top: 32px; }
   .mac { top: 16px; right: 16px; left: 16px; width: auto; }
+  .mac { font-size: 14px; }
   .mac-window { margin: 12px 12px 0; }
   .mac-doc { padding: 8px 20px 32px; }
   .mac-doc .mac-title { font-size: 22px; }
