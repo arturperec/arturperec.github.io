@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Pereć · Apps and websites</title>
+  <meta name="description" content="Artur Pereć makes apps for Mac, Windows and iPhone, and their websites: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości RUNPOLAND website.">
+  <meta property="og:title" content="Artur Pereć · Apps and websites">
+  <meta property="og:description" content="Mulembe, 49 - Focus Booster, Dozelight and Bieg Niepodległości RUNPOLAND.">
+  <meta property="og:image" content="https://arturperec.github.io/assets/mulembe-midnight.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <link rel="canonical" href="https://arturperec.github.io/">
+  <link rel="alternate" hreflang="en" href="https://arturperec.github.io/">
+  <link rel="alternate" hreflang="pl" href="https://arturperec.github.io/pl/">
+  <link rel="alternate" hreflang="x-default" href="https://arturperec.github.io/">
+  <meta name="theme-color" content="#f7f9fa">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d7480'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='19' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet">
+  <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+  <a class="skip" href="#work">Skip to the work</a>
+  <!-- Dozelight demo: the radios live at the top so :has() can tint the whole page from anywhere -->
+  <div class="page-tint" aria-hidden="true"></div>
+
+  <!-- The site bar slides in once the hero is behind; the name leads to About, as in the hero; phones get the projects in a menu -->
+  <nav class="site-bar" aria-label="Projects">
+    <a class="site-bar-name" href="#about" translate="no">Artur Pereć</a>
+    <ul class="site-bar-links">
+      <li><a href="#mulembe">Mulembe</a></li>
+      <li><a href="#forty-nine">49 - Focus Booster</a></li>
+      <li><a href="#dozelight">Dozelight</a></li>
+      <li><a href="#bieg">Bieg Niepodległości</a></li>
+    </ul>
+    <details class="site-bar-menu">
+      <summary>Projects <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <ul>
+        <li><a href="#mulembe">Mulembe</a></li>
+        <li><a href="#forty-nine">49 - Focus Booster</a></li>
+        <li><a href="#dozelight">Dozelight</a></li>
+        <li><a href="#bieg">Bieg Niepodległości</a></li>
+      </ul>
+    </details>
+    <span class="site-bar-end">
+      <a class="lang-switch" href="pl/" hreflang="pl">EN<span class="sr-only">, switch to Polish</span></a>
+      <a class="site-bar-contact" href="#contact">Contact</a>
+    </span>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-sheet">
+      <nav class="hero-nav" aria-label="Main">
+        <a href="#work">Work</a>
+        <a class="wordmark" href="#about" translate="no">Artur Pereć</a>
+        <span class="hero-nav-end">
+          <a href="#contact">Contact</a>
+          <a class="lang-switch" href="pl/" hreflang="pl">EN<span class="sr-only">, switch to Polish</span></a>
+        </span>
+      </nav>
+      <div class="hero-copy">
+        <h1 data-rise>Apps and websites, start to&nbsp;finish</h1>
+        <p data-rise>I’m Artur Pereć. I make apps for Mac, Windows and iPhone, and the website that goes with each&nbsp;one.</p>
+        <a class="button" href="#film" data-rise>See the work</a>
+      </div>
+    </div>
+
+    <figure class="hero-stage" aria-label="My products, one after another">
+      <div class="slide is-active" data-target="mulembe" data-name="Mulembe" data-kind="macOS app" style="--field: #1c1f22; --slide-ink: #ebe4d6">
+        <div class="slide-copy">
+          <p class="slide-line">All your AI agents, side by side.</p>
+          <p class="slide-sub">See who’s working, who needs you and what changed, all in one window.</p>
+        </div>
+        <div class="shots">
+          <img src="assets/mulembe-overview.jpg" alt="Mulembe with fourteen agents at once: green panes are working, the orange one needs an answer" width="1600" height="1000" fetchpriority="high">
+        </div>
+      </div>
+      <div class="slide" aria-hidden="true" data-target="forty-nine" data-name="49 - Focus Booster" data-kind="iPhone game" style="--field: #c8a062; --slide-ink: #15120d">
+        <div class="slide-copy">
+          <p class="slide-line">Find 1 to 49.</p>
+          <p class="slide-sub">In order, as fast as you can. A one-minute focus game.</p>
+        </div>
+        <div class="shots">
+          <img class="phone" src="assets/49-menu-dark.webp" alt="The main menu of 49: the Daily Challenge, game styles and the three modes with your best results" width="600" height="1304">
+          <img class="phone" src="assets/49-classic-dark.png" alt="49 mid-game: find 18 on a shuffled seven by seven board" width="600" height="1169">
+        </div>
+      </div>
+      <div class="slide" aria-hidden="true" data-target="dozelight" data-name="Dozelight" data-kind="macOS and Windows app" style="--field: #1b1210; --slide-ink: #f3e3cf">
+        <div class="slide-copy">
+          <p class="slide-line">Warmer than Night Shift.</p>
+          <p class="slide-sub">Down to candlelight and pure red, on your bedtime schedule.</p>
+        </div>
+        <div class="shots shots-stack">
+          <img src="assets/dozelight-candlelight.jpg" alt="An evening reading page at 2000K with Dozelight’s menu open" width="1600" height="900">
+          <img src="assets/dozelight-red.jpg" alt="The same page in Red only, with no blue or green light" width="1600" height="900">
+        </div>
+      </div>
+      <div class="slide" aria-hidden="true" data-target="bieg" data-name="Bieg Niepodległości" data-kind="Website" style="--field: #2a0e14; --slide-ink: #f4e6d8">
+        <div class="slide-copy">
+          <p class="slide-line">Let your freedom run.</p>
+          <p class="slide-sub">10&nbsp;km through Poznań on Polish Independence Day.</p>
+        </div>
+        <div class="shots shots-stack">
+          <img src="assets/bieg-home.jpg" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908">
+          <img src="assets/bieg-trophy-room.jpg" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000">
+        </div>
+      </div>
+      <button class="hero-side hero-side-prev" type="button" data-step="-1" aria-label="Previous project">
+        <svg viewBox="0 0 16 40" aria-hidden="true"><path d="M14 2 2 20l12 18"/></svg>
+      </button>
+      <button class="hero-side hero-side-next" type="button" data-step="1" aria-label="Next project">
+        <svg viewBox="0 0 16 40" aria-hidden="true"><path d="M2 2l12 18L2 38"/></svg>
+      </button>
+      <figcaption class="hero-bar">
+        <a class="hero-bar-name" href="#mulembe">Mulembe</a>
+        <span class="hero-dots">
+          <button type="button" aria-label="Show Mulembe" aria-current="true"></button>
+          <button type="button" aria-label="Show 49 - Focus Booster"></button>
+          <button type="button" aria-label="Show Dozelight"></button>
+          <button type="button" aria-label="Show Bieg Niepodległości"></button>
+        </span>
+        <span class="hero-bar-end">
+          <span class="hero-bar-kind">macOS app</span>
+          <button class="hero-pause" type="button" aria-pressed="false">Pause</button>
+        </span>
+      </figcaption>
+    </figure>
+  </header>
+
+  <main>
+    <section class="reel" id="reel" aria-labelledby="reel-title">
+      <div class="reel-head">
+        <h2 id="reel-title" data-rise>The short version</h2>
+        <p data-rise>All four products in twenty-two seconds, made with AI agents from this page’s own code, music included.</p>
+      </div>
+      <div class="reel-player" id="film">
+        <div class="reel-media" data-rise>
+          <!-- Phones get the vertical cut; the script keeps the poster in step and plays it only while it is on screen -->
+          <video poster="assets/reel.jpg?v=2" data-poster-phone="assets/reel-vertical.jpg?v=2" width="1920" height="1080" muted loop playsinline preload="none" controls aria-label="A 22-second film of my work: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości website, ending with a QR code to the contact form">
+            <source src="assets/reel-vertical.mp4?v=2" type="video/mp4" media="(max-width: 899px)">
+            <source src="assets/reel.mp4?v=2" type="video/mp4">
+          </video>
+          <button class="reel-speaker" type="button" aria-label="Sound" aria-pressed="false" hidden>
+            <svg class="speaker-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16 9.5l5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="speaker-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+        </div>
+        <!-- The media bar: play and pause, the seek bar, the time and the sound -->
+        <div class="reel-bar" data-rise hidden>
+          <button class="reel-pause" type="button" aria-pressed="false">Pause</button>
+          <div class="reel-seek">
+            <div class="reel-track"><div class="reel-fill"></div></div>
+            <input class="reel-range" type="range" min="0" max="22" step="any" value="0" aria-label="Position in the film" aria-valuetext="0:00 of 0:22">
+          </div>
+          <span class="reel-time"><span class="reel-now">0:00</span> / <span class="reel-total">0:22</span></span>
+          <button class="reel-sound" type="button" aria-pressed="false">Sound off</button>
+        </div>
+        <!-- Says there is more below, as under the 49 site's film -->
+        <a class="reel-next" href="#work" data-rise><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 2v11M3 8.5 8 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>See the work right below</span></a>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <h2 class="work-title" id="work-title" data-rise>Selected work</h2>
+
+      <article class="project" id="mulembe">
+        <div class="project-media" style="--field: #15171b" data-rise>
+          <div class="shots shots-stack">
+            <img src="assets/mulembe-midnight.jpg" alt="Mulembe’s grid of four panes, one agent in each, with an orange pane waiting for an answer" width="1600" height="900" loading="lazy">
+            <img src="assets/mulembe-git.jpg" alt="A pane on its own git branch, with the list of changed files and the diff beside it" width="1600" height="900" loading="lazy">
+          </div>
+        </div>
+        <div class="project-text">
+          <h3 data-rise>Mulembe</h3>
+          <p data-rise>A calm, native Mac terminal for running Claude Code, Codex and other AI coding agents side by side. Panes arrange themselves in a grid, turn orange when an agent needs you, and keep running through crashes and restarts. Every pane can use its own Claude account and its own git branch.</p>
+          <p class="facts" data-rise>macOS app and its website · 14 days free, then $19 once</p>
+          <a class="visit" href="https://mulembe-app.github.io" data-rise>Visit mulembe-app.github.io</a>
+        </div>
+      </article>
+
+      <article class="project" id="forty-nine">
+        <div class="project-media project-video" style="--field: #c8a062" data-rise>
+          <video poster="assets/49-promo.jpg" data-poster-phone="assets/49-promo-mobile.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="The 49 launch video: find 1 to 49, points and combos, races against friends, the Daily Challenge and special days">
+            <source src="assets/49-promo-mobile.mp4" type="video/mp4" media="(max-width: 899px)">
+            <source src="assets/49-promo.mp4" type="video/mp4">
+          </video>
+          <div class="video-controls">
+            <button class="video-sound" type="button" aria-pressed="false">Sound off</button>
+            <button class="video-toggle" type="button" aria-pressed="false">Pause</button>
+          </div>
+        </div>
+        <div class="project-text">
+          <h3 data-rise>49 - Focus Booster</h3>
+          <p data-rise>A one-minute focus game for iPhone. Find the numbers 1 to 49 in order on a shuffled board, as fast as you can. Ranks, a new Daily Challenge every day, ghost races against friends, Game Center leaderboards and iCloud sync, in nine languages.</p>
+          <p class="facts" data-rise>iPhone game and its website · Free, in open beta on TestFlight</p>
+          <a class="visit" href="https://49game.github.io" data-rise>Visit 49game.github.io</a>
+        </div>
+      </article>
+
+      <article class="project" id="dozelight">
+        <div class="project-media" style="--field: #1b1210" data-rise>
+          <div class="shots shots-stack">
+            <img src="assets/dozelight-darkroom.jpg" alt="Darkroom: the page turns black with red text, with Dozelight’s filters menu open" width="1600" height="900" loading="lazy">
+            <img src="assets/dozelight-schedule.jpg" alt="Dozelight’s sleep schedule: bedtime 11 PM, wake up 7 AM, with Auto on" width="1600" height="900" loading="lazy">
+          </div>
+        </div>
+        <div class="project-text">
+          <h3 data-rise>Dozelight</h3>
+          <p data-rise>A tiny menu bar app that takes the screen warmer than Night Shift allows, down to candlelight and pure red. It follows your bedtime, or dusk and dawn, so the evening warms up on its own. On Mac and Windows, in English and Polish.</p>
+          <p class="facts" data-rise>macOS and Windows app and its website · 14 days free, then $9.99 once</p>
+          <a class="visit" href="https://dozelight.github.io" data-rise>Visit dozelight.github.io</a>
+        </div>
+      </article>
+
+      <article class="project" id="bieg">
+        <div class="project-media" style="--field: #2a0e14" data-rise>
+          <div class="shots shots-stack">
+            <img src="assets/bieg-home.jpg" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908" loading="lazy">
+            <img src="assets/bieg-trophy-room.jpg" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000" loading="lazy">
+          </div>
+        </div>
+        <div class="project-text">
+          <h3 data-rise>Bieg Niepodległości RUNPOLAND</h3>
+          <p data-rise>The website of a 10&nbsp;km run through the streets of Poznań on Polish Independence Day, 11&nbsp;November. A custom WordPress theme with a race-day countdown and a trophy room for every medal since 2016, plus the page content, SEO, a PHP&nbsp;8 upgrade and a full UX pass.</p>
+          <p class="facts" data-rise>Website · WordPress</p>
+          <a class="visit" href="https://biegniepodleglosci.pl" data-rise>Visit biegniepodleglosci.pl</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="demo" id="try" aria-labelledby="demo-title">
+      <div class="demo-controls">
+        <h2 id="demo-title" data-rise>Try Dozelight on this&nbsp;page</h2>
+        <fieldset class="temps" data-rise>
+          <legend class="sr-only">Screen colour</legend>
+          <label><input type="radio" name="temp" value="6500" checked><span>Daylight</span></label>
+          <label><input type="radio" name="temp" value="2700"><span>Night Shift</span></label>
+          <label><input type="radio" name="temp" value="2000"><span>Candlelight</span></label>
+          <label><input type="radio" name="temp" value="1600"><span>Firelight</span></label>
+          <label><input type="radio" name="temp" value="1200"><span>Ember</span></label>
+          <label><input type="radio" name="temp" value="red"><span>Red only</span></label>
+        </fieldset>
+        <label class="whole-page" data-rise>
+          <input type="checkbox" id="warm-page">
+          <span>Warm the whole page, not just the screen</span>
+        </label>
+      </div>
+
+      <div class="demo-stage" data-rise>
+        <div class="mac" data-ui>
+          <div class="mac-menubar">
+            <span class="mac-app">Evening notes</span>
+            <span class="mac-status">
+              <svg class="mac-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9a6 6 0 0 0-6 6h12a6 6 0 0 0-6-6Zm-9 7.5h18v1.5H3zM11.25 3h1.5v3.5h-1.5zM4.4 6.5l1.06-1.06 2.47 2.47-1.06 1.06zm11.13 1.41 2.47-2.47 1.06 1.06-2.47 2.47z"/></svg>
+              <span class="mac-kelvin"></span>
+              <span>Sat 22:41</span>
+            </span>
+          </div>
+          <div class="mac-window">
+            <div class="mac-titlebar"><i></i><i></i><i></i></div>
+            <div class="mac-doc">
+              <p class="mac-meta">Tonight · 6 min read</p>
+              <p class="mac-title">A slower end to the day</p>
+              <p>There is a moment after sunset when the light outside turns amber and everything seems to slow down. Screens, though, keep glowing with the same bright daylight white long after the sun has gone.</p>
+              <div class="mac-sunset"><span></span></div>
+              <p>Warmer light in the evening is easier on tired eyes. Late at night, a screen that glows soft red lets you finish a chapter or answer one last message without the harsh brightness of midday.</p>
+              <p>Tomorrow’s plan: a short walk before dinner, the second half of the novel, and lights out by eleven.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter" id="about" aria-labelledby="about-title">
+      <div class="letter-head">
+        <h2 id="about-title" data-rise>One person, the whole&nbsp;way</h2>
+        <img class="portrait" src="assets/artur.jpg" alt="Artur doing a one-arm handstand in front of the Umiejętności Jutra AI 3.0 wall" width="1400" height="1165" loading="lazy" data-rise>
+        <p class="sign" data-rise><span>Artur Pereć</span><span>Apps and websites, built with AI agents</span></p>
+      </div>
+      <div class="letter-body">
+        <p data-rise>I make small, careful software, mostly for Apple’s platforms, and I take each product the whole way: product design, engineering, website, App Store listing, release notes and support.</p>
+        <p data-rise>For me, creativity matters most. With AI agents doing the heavy lifting, my time goes into the idea itself: what to make, how it should feel, and the small details that make people want to come back to it.</p>
+        <p data-rise>I started as a programmer, with games in Unity and VR, then Java, C# and Swift. Today I lead a team of AI coding agents: I set the product direction, write the specifications, run several agents in parallel and review every change before it ships. That’s how one person keeps a Mac app, an iPhone game, a Windows port and four websites moving at once.</p>
+        <p data-rise>Every app here began as something I wanted for myself. I run several AI coding agents at once, so I built a terminal for exactly that. Night Shift wasn’t warm enough at midnight, so Dozelight goes further. A minute of focus training is easier to keep up than twenty, so a game of 49 takes about a minute.</p>
+        <p data-rise>I run too, which is how I came to rebuild a race’s website. If you have a product that should feel this calm, <mark>I’d be glad to hear about it.</mark></p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" data-rise><span>Need a hand?</span> Let’s make it&nbsp;happen.</h2>
+      <div class="contact-body">
+        <p class="contact-lead" data-rise>From large IT projects and AI integration for companies to websites, apps, design and courses: tell me what you need, and I’ll tell you how I can help.</p>
+        <!-- Web3Forms sends each message to my inbox; the access key is public by design -->
+        <form class="ask" action="https://api.web3forms.com/submit" method="post" data-rise>
+          <input type="hidden" name="access_key" value="5b1bb2b0-cb52-4527-9e7e-5e2f059576c8">
+          <input type="hidden" name="subject" value="Request from your portfolio">
+          <input type="hidden" name="from_name" value="Portfolio">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden>
+          <!-- The email row opens once there is a message; without the script both rows show -->
+          <div class="ask-row">
+            <label class="sr-only" for="ask-text">What do you need help with?</label>
+            <input id="ask-text" name="message" type="text" placeholder="What do you need help with?" autocomplete="off" required aria-describedby="ask-note">
+            <button class="ask-next" type="button" aria-label="Add your email" aria-controls="ask-email-row" aria-expanded="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4v12.2l-4.6-4.6L5 13l7 7 7-7-1.4-1.4-4.6 4.6V4z"/></svg>
+            </button>
+          </div>
+          <div class="ask-row ask-email" id="ask-email-row">
+            <label class="sr-only" for="ask-email">Your email</label>
+            <input id="ask-email" name="email" type="email" placeholder="Your email, so I can reply" autocomplete="email" required aria-describedby="ask-note">
+            <button class="ask-send" type="submit" aria-label="Send the message">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h12.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></svg>
+            </button>
+          </div>
+        </form>
+        <p class="ask-note" id="ask-note" role="status" data-rise>Your message comes straight to my inbox, and I’ll reply by email.</p>
+        <dl class="contact-rows" data-rise>
+          <div><dt>Email</dt><dd><a href="mailto:artur.g.perec@gmail.com">artur.g.perec@gmail.com</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/arturperec/">linkedin.com/in/arturperec</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/arturperec">github.com/arturperec</a></dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Artur Pereć, apps and websites</p>
+    <nav aria-label="Projects">
+      <a href="https://mulembe-app.github.io">Mulembe</a>
+      <a href="https://49game.github.io">49</a>
+      <a href="https://dozelight.github.io">Dozelight</a>
+      <a href="https://biegniepodleglosci.pl">Bieg Niepodległości</a>
+      <a href="https://www.linkedin.com/in/arturperec/">LinkedIn</a>
+      <a href="https://github.com/arturperec">GitHub</a>
+      <a href="pl/" hreflang="pl" lang="pl">Polski</a>
+    </nav>
+    <p>© 2026</p>
+  </footer>
+
+  <button class="back-top" type="button" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20V7.8l-4.6 4.6L5 11l7-7 7 7-1.4 1.4L13 7.8V20z"/></svg>
+    Back to the top
+  </button>
+
+  <script src="script.js?v=5" defer></script>
+</body>
+</html>
