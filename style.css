@@ -43,6 +43,10 @@
 :root:lang(pl) { --kelvin: "Wył."; }
 :root:lang(pl):has(input[value="red"]:checked) { --kelvin: "Czerwień"; }
 
+/* Switzer, served from this site (Fontshare's free licence allows it), so text doesn't wait on another domain */
+@font-face { font-family: Switzer; src: url("assets/fonts/switzer-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: Switzer; src: url("assets/fonts/switzer-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+
 *, *::before, *::after { box-sizing: border-box; }
 
 /* Every size is in rem, so the whole page grows with the window past 1600 × 1000: a big monitor shows the laptop

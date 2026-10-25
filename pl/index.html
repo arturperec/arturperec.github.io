@@ -20,11 +20,11 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- The script flag, and the theme the visitor picked last time, set before the first paint -->
   <script>document.documentElement.classList.add('js'); try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet">
+  <!-- The first slide's picture is the largest thing on the first screen, so it starts loading with the stylesheet -->
+  <link rel="preload" as="image" imagesrcset="../assets/img/mulembe-overview-480.webp 480w, ../assets/img/mulembe-overview-640.webp 640w, ../assets/img/mulembe-overview-800.webp 800w, ../assets/img/mulembe-overview-1200.webp 1200w, ../assets/img/mulembe-overview-1600.webp 1600w" imagesizes="(max-width: 899px) 82vw, 41vw" fetchpriority="high">
+  <link rel="preload" href="../assets/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="../style.css?v=12">
+  <link rel="stylesheet" href="../style.css?v=14">
 </head>
 <body>
   <a class="skip" href="#work">Przejdź do projektów</a>
@@ -68,9 +68,9 @@
         </span>
       </nav>
       <div class="hero-copy">
-        <h1 data-rise>Aplikacje&nbsp;i&nbsp;strony od&nbsp;A&nbsp;do&nbsp;Z</h1>
-        <p data-rise>Jestem Artur Pereć. Tworzę aplikacje na Maca, Windowsa i iPhone’a, a do każdej z nich także stronę&nbsp;internetową.</p>
-        <a class="button" href="#film" data-rise>Zobacz projekty</a>
+        <h1>Aplikacje&nbsp;i&nbsp;strony od&nbsp;A&nbsp;do&nbsp;Z</h1>
+        <p>Jestem Artur Pereć. Tworzę aplikacje na Maca, Windowsa i iPhone’a, a do każdej z nich także stronę&nbsp;internetową.</p>
+        <a class="button" href="#film">Zobacz projekty</a>
       </div>
     </div>
 
@@ -81,7 +81,7 @@
           <p class="slide-sub">Widzisz, kto pracuje, kto czeka na ciebie i co się zmieniło. Wszystko w jednym oknie.</p>
         </div>
         <div class="shots">
-          <img src="../assets/mulembe-overview.jpg" alt="Mulembe z czternastoma agentami naraz: zielone panele pracują, pomarańczowy czeka na odpowiedź" width="1600" height="1000" fetchpriority="high">
+          <img src="../assets/img/mulembe-overview-1200.webp" srcset="../assets/img/mulembe-overview-480.webp 480w, ../assets/img/mulembe-overview-640.webp 640w, ../assets/img/mulembe-overview-800.webp 800w, ../assets/img/mulembe-overview-1200.webp 1200w, ../assets/img/mulembe-overview-1600.webp 1600w" sizes="(max-width: 899px) 82vw, 41vw" alt="Mulembe z czternastoma agentami naraz: zielone panele pracują, pomarańczowy czeka na odpowiedź" width="1600" height="1000" fetchpriority="high">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="forty-nine" data-name="49 - Focus Booster" data-kind="gra na iPhone’a" style="--field: #c8a062; --slide-ink: #15120d">
@@ -90,8 +90,8 @@
           <p class="slide-sub">Po kolei, najszybciej, jak potrafisz. Minutowa gra na skupienie.</p>
         </div>
         <div class="shots">
-          <img class="phone" src="../assets/49-menu-dark.webp" alt="Menu główne 49: Wyzwanie Dnia, style gry i trzy tryby z twoimi najlepszymi wynikami" width="600" height="1304">
-          <img class="phone" src="../assets/49-classic-dark.png" alt="49 w trakcie gry: znajdź 18 na pomieszanej planszy siedem na siedem" width="600" height="1169">
+          <img data-src="../assets/img/49-menu-dark-600.webp" data-srcset="../assets/img/49-menu-dark-300.webp 300w, ../assets/img/49-menu-dark-600.webp 600w" sizes="(max-width: 899px) 39vw, 19vw" class="phone" alt="Menu główne 49: Wyzwanie Dnia, style gry i trzy tryby z twoimi najlepszymi wynikami" width="600" height="1304">
+          <img data-src="../assets/img/49-classic-dark-600.webp" data-srcset="../assets/img/49-classic-dark-300.webp 300w, ../assets/img/49-classic-dark-600.webp 600w" sizes="(max-width: 899px) 39vw, 19vw" class="phone" alt="49 w trakcie gry: znajdź 18 na pomieszanej planszy siedem na siedem" width="600" height="1169">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="dozelight" data-name="Dozelight" data-kind="aplikacja na macOS i Windows" style="--field: #1b1210; --slide-ink: #f3e3cf">
@@ -100,8 +100,8 @@
           <p class="slide-sub">Aż do blasku świecy i czystej czerwieni, zgodnie z twoją porą snu.</p>
         </div>
         <div class="shots shots-stack">
-          <img src="../assets/dozelight-candlelight.jpg" alt="Strona do wieczornego czytania przy 2000K z otwartym menu Dozelight" width="1600" height="900">
-          <img src="../assets/dozelight-red.jpg" alt="Ta sama strona w trybie Tylko czerwień, bez światła niebieskiego i zielonego" width="1600" height="900">
+          <img data-src="../assets/img/dozelight-candlelight-1200.webp" data-srcset="../assets/img/dozelight-candlelight-480.webp 480w, ../assets/img/dozelight-candlelight-640.webp 640w, ../assets/img/dozelight-candlelight-800.webp 800w, ../assets/img/dozelight-candlelight-1200.webp 1200w, ../assets/img/dozelight-candlelight-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="Strona do wieczornego czytania przy 2000K z otwartym menu Dozelight" width="1600" height="900">
+          <img data-src="../assets/img/dozelight-red-1200.webp" data-srcset="../assets/img/dozelight-red-480.webp 480w, ../assets/img/dozelight-red-640.webp 640w, ../assets/img/dozelight-red-800.webp 800w, ../assets/img/dozelight-red-1200.webp 1200w, ../assets/img/dozelight-red-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="Ta sama strona w trybie Tylko czerwień, bez światła niebieskiego i zielonego" width="1600" height="900">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="bieg" data-name="Bieg Niepodległości" data-kind="strona internetowa" style="--field: #2a0e14; --slide-ink: #f4e6d8">
@@ -110,8 +110,8 @@
           <p class="slide-sub">10&nbsp;km ulicami Poznania w Święto Niepodległości.</p>
         </div>
         <div class="shots shots-stack">
-          <img src="../assets/bieg-home.jpg" alt="Strona główna Biegu Niepodległości: nazwa biegu, data, godzina startu i odliczanie nad linią startu" width="1600" height="908">
-          <img src="../assets/bieg-trophy-room.jpg" alt="Sala trofeów: medal z 2024 roku, złote berło królewskie, a pod nim medale z każdego roku" width="1600" height="1000">
+          <img data-src="../assets/img/bieg-home-1200.webp" data-srcset="../assets/img/bieg-home-480.webp 480w, ../assets/img/bieg-home-640.webp 640w, ../assets/img/bieg-home-800.webp 800w, ../assets/img/bieg-home-1200.webp 1200w, ../assets/img/bieg-home-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="Strona główna Biegu Niepodległości: nazwa biegu, data, godzina startu i odliczanie nad linią startu" width="1600" height="908">
+          <img data-src="../assets/img/bieg-trophy-room-1200.webp" data-srcset="../assets/img/bieg-trophy-room-480.webp 480w, ../assets/img/bieg-trophy-room-640.webp 640w, ../assets/img/bieg-trophy-room-800.webp 800w, ../assets/img/bieg-trophy-room-1200.webp 1200w, ../assets/img/bieg-trophy-room-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="Sala trofeów: medal z 2024 roku, złote berło królewskie, a pod nim medale z każdego roku" width="1600" height="1000">
         </div>
       </div>
       <button class="hero-side hero-side-prev" type="button" data-step="-1" aria-label="Poprzedni projekt">
@@ -145,7 +145,7 @@
       <div class="reel-player" id="film">
         <div class="reel-media" data-rise>
           <!-- Phones get the vertical cut; the script keeps the poster in step and plays it only while it is on screen -->
-          <video poster="../assets/reel-pl.jpg?v=1" data-poster-phone="../assets/reel-pl-vertical.jpg?v=1" width="1920" height="1080" muted loop playsinline preload="none" controls aria-label="22-sekundowy film o mojej pracy: Mulembe, 49 - Focus Booster, Dozelight i strona Biegu Niepodległości, zakończony kodem QR do formularza kontaktowego">
+          <video data-poster="../assets/img/reel-pl-1600.webp" data-poster-phone="../assets/img/reel-pl-vertical-720.webp" width="1920" height="1080" muted loop playsinline preload="none" controls aria-label="22-sekundowy film o mojej pracy: Mulembe, 49 - Focus Booster, Dozelight i strona Biegu Niepodległości, zakończony kodem QR do formularza kontaktowego">
             <source src="../assets/reel-pl-vertical.mp4?v=2" type="video/mp4" media="(max-width: 899px)">
             <source src="../assets/reel-pl.mp4?v=2" type="video/mp4">
           </video>
@@ -175,8 +175,8 @@
       <article class="project" id="mulembe">
         <div class="project-media" style="--field: #15171b" data-rise>
           <div class="shots shots-stack">
-            <img src="../assets/mulembe-midnight.jpg" alt="Siatka Mulembe z czterema panelami, w każdym jeden agent, i pomarańczowy panel czekający na odpowiedź" width="1600" height="900" loading="lazy">
-            <img src="../assets/mulembe-git.jpg" alt="Panel na własnej gałęzi gita, z listą zmienionych plików i różnicami obok" width="1600" height="900" loading="lazy">
+            <img src="../assets/img/mulembe-midnight-1200.webp" srcset="../assets/img/mulembe-midnight-480.webp 480w, ../assets/img/mulembe-midnight-640.webp 640w, ../assets/img/mulembe-midnight-800.webp 800w, ../assets/img/mulembe-midnight-1200.webp 1200w, ../assets/img/mulembe-midnight-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Siatka Mulembe z czterema panelami, w każdym jeden agent, i pomarańczowy panel czekający na odpowiedź" width="1600" height="900" loading="lazy">
+            <img src="../assets/img/mulembe-git-1200.webp" srcset="../assets/img/mulembe-git-480.webp 480w, ../assets/img/mulembe-git-640.webp 640w, ../assets/img/mulembe-git-800.webp 800w, ../assets/img/mulembe-git-1200.webp 1200w, ../assets/img/mulembe-git-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Panel na własnej gałęzi gita, z listą zmienionych plików i różnicami obok" width="1600" height="900" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -189,7 +189,7 @@
 
       <article class="project" id="forty-nine">
         <div class="project-media project-video" style="--field: #c8a062" data-rise>
-          <video poster="../assets/49-promo.jpg" data-poster-phone="../assets/49-promo-mobile.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="Film premierowy 49: znajdź od 1 do 49, punkty i combo, wyścigi ze znajomymi, Wyzwanie Dnia i specjalne dni">
+          <video data-poster="../assets/img/49-promo-1280.webp" data-poster-phone="../assets/img/49-promo-mobile-720.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="Film premierowy 49: znajdź od 1 do 49, punkty i combo, wyścigi ze znajomymi, Wyzwanie Dnia i specjalne dni">
             <source src="../assets/49-promo-mobile.mp4" type="video/mp4" media="(max-width: 899px)">
             <source src="../assets/49-promo.mp4" type="video/mp4">
           </video>
@@ -209,8 +209,8 @@
       <article class="project" id="dozelight">
         <div class="project-media" style="--field: #1b1210" data-rise>
           <div class="shots shots-stack">
-            <img src="../assets/dozelight-darkroom.jpg" alt="Ciemnia: strona robi się czarna z czerwonym tekstem, z otwartym menu filtrów Dozelight" width="1600" height="900" loading="lazy">
-            <img src="../assets/dozelight-schedule.jpg" alt="Harmonogram snu w Dozelight: pora snu 23:00, pobudka 7:00, tryb Auto włączony" width="1600" height="900" loading="lazy">
+            <img src="../assets/img/dozelight-darkroom-1200.webp" srcset="../assets/img/dozelight-darkroom-480.webp 480w, ../assets/img/dozelight-darkroom-640.webp 640w, ../assets/img/dozelight-darkroom-800.webp 800w, ../assets/img/dozelight-darkroom-1200.webp 1200w, ../assets/img/dozelight-darkroom-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Ciemnia: strona robi się czarna z czerwonym tekstem, z otwartym menu filtrów Dozelight" width="1600" height="900" loading="lazy">
+            <img src="../assets/img/dozelight-schedule-1200.webp" srcset="../assets/img/dozelight-schedule-480.webp 480w, ../assets/img/dozelight-schedule-640.webp 640w, ../assets/img/dozelight-schedule-800.webp 800w, ../assets/img/dozelight-schedule-1200.webp 1200w, ../assets/img/dozelight-schedule-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Harmonogram snu w Dozelight: pora snu 23:00, pobudka 7:00, tryb Auto włączony" width="1600" height="900" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -224,8 +224,8 @@
       <article class="project" id="bieg">
         <div class="project-media" style="--field: #2a0e14" data-rise>
           <div class="shots shots-stack">
-            <img src="../assets/bieg-home.jpg" alt="Strona główna Biegu Niepodległości: nazwa biegu, data, godzina startu i odliczanie nad linią startu" width="1600" height="908" loading="lazy">
-            <img src="../assets/bieg-trophy-room.jpg" alt="Sala trofeów: medal z 2024 roku, złote berło królewskie, a pod nim medale z każdego roku" width="1600" height="1000" loading="lazy">
+            <img src="../assets/img/bieg-home-1200.webp" srcset="../assets/img/bieg-home-480.webp 480w, ../assets/img/bieg-home-640.webp 640w, ../assets/img/bieg-home-800.webp 800w, ../assets/img/bieg-home-1200.webp 1200w, ../assets/img/bieg-home-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Strona główna Biegu Niepodległości: nazwa biegu, data, godzina startu i odliczanie nad linią startu" width="1600" height="908" loading="lazy">
+            <img src="../assets/img/bieg-trophy-room-1200.webp" srcset="../assets/img/bieg-trophy-room-480.webp 480w, ../assets/img/bieg-trophy-room-640.webp 640w, ../assets/img/bieg-trophy-room-800.webp 800w, ../assets/img/bieg-trophy-room-1200.webp 1200w, ../assets/img/bieg-trophy-room-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Sala trofeów: medal z 2024 roku, złote berło królewskie, a pod nim medale z każdego roku" width="1600" height="1000" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -283,7 +283,7 @@
     <section class="letter" id="about" aria-labelledby="about-title">
       <div class="letter-head">
         <h2 id="about-title" data-rise>Jedna osoba, przez całą&nbsp;drogę</h2>
-        <img class="portrait" src="../assets/artur.jpg" alt="Artur robi stanie na jednej ręce przed ścianką Umiejętności Jutra AI 3.0" width="1400" height="1165" loading="lazy" data-rise>
+        <img class="portrait" src="../assets/img/artur-800.webp" srcset="../assets/img/artur-480.webp 480w, ../assets/img/artur-640.webp 640w, ../assets/img/artur-800.webp 800w, ../assets/img/artur-1400.webp 1400w" sizes="(max-width: 899px) 86vw, 36vw" alt="Artur robi stanie na jednej ręce przed ścianką Umiejętności Jutra AI 3.0" width="1400" height="1165" loading="lazy" data-rise>
         <p class="sign" data-rise><span><a href="https://www.linkedin.com/in/arturperec/" rel="me" aria-label="Artur Pereć na LinkedIn" translate="no">Artur Pereć</a></span><span>Aplikacje i strony, tworzone z agentami AI</span></p>
       </div>
       <div class="letter-body">
@@ -350,6 +350,6 @@
     Wróć na górę
   </button>
 
-  <script src="../script.js?v=12" defer></script>
+  <script src="../script.js?v=14" defer></script>
 </body>
 </html>

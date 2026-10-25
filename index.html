@@ -20,11 +20,11 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- The script flag, and the theme the visitor picked last time, set before the first paint -->
   <script>document.documentElement.classList.add('js'); try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet">
+  <!-- The first slide's picture is the largest thing on the first screen, so it starts loading with the stylesheet -->
+  <link rel="preload" as="image" imagesrcset="assets/img/mulembe-overview-480.webp 480w, assets/img/mulembe-overview-640.webp 640w, assets/img/mulembe-overview-800.webp 800w, assets/img/mulembe-overview-1200.webp 1200w, assets/img/mulembe-overview-1600.webp 1600w" imagesizes="(max-width: 899px) 82vw, 41vw" fetchpriority="high">
+  <link rel="preload" href="assets/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
   <a class="skip" href="#work">Skip to the work</a>
@@ -68,9 +68,9 @@
         </span>
       </nav>
       <div class="hero-copy">
-        <h1 data-rise>Apps and websites, start to&nbsp;finish</h1>
-        <p data-rise>I’m Artur Pereć. I make apps for Mac, Windows and iPhone, and the website that goes with each&nbsp;one.</p>
-        <a class="button" href="#film" data-rise>See the work</a>
+        <h1>Apps and websites, start to&nbsp;finish</h1>
+        <p>I’m Artur Pereć. I make apps for Mac, Windows and iPhone, and the website that goes with each&nbsp;one.</p>
+        <a class="button" href="#film">See the work</a>
       </div>
     </div>
 
@@ -81,7 +81,7 @@
           <p class="slide-sub">See who’s working, who needs you and what changed, all in one window.</p>
         </div>
         <div class="shots">
-          <img src="assets/mulembe-overview.jpg" alt="Mulembe with fourteen agents at once: green panes are working, the orange one needs an answer" width="1600" height="1000" fetchpriority="high">
+          <img src="assets/img/mulembe-overview-1200.webp" srcset="assets/img/mulembe-overview-480.webp 480w, assets/img/mulembe-overview-640.webp 640w, assets/img/mulembe-overview-800.webp 800w, assets/img/mulembe-overview-1200.webp 1200w, assets/img/mulembe-overview-1600.webp 1600w" sizes="(max-width: 899px) 82vw, 41vw" alt="Mulembe with fourteen agents at once: green panes are working, the orange one needs an answer" width="1600" height="1000" fetchpriority="high">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="forty-nine" data-name="49 - Focus Booster" data-kind="iPhone game" style="--field: #c8a062; --slide-ink: #15120d">
@@ -90,8 +90,8 @@
           <p class="slide-sub">In order, as fast as you can. A one-minute focus game.</p>
         </div>
         <div class="shots">
-          <img class="phone" src="assets/49-menu-dark.webp" alt="The main menu of 49: the Daily Challenge, game styles and the three modes with your best results" width="600" height="1304">
-          <img class="phone" src="assets/49-classic-dark.png" alt="49 mid-game: find 18 on a shuffled seven by seven board" width="600" height="1169">
+          <img data-src="assets/img/49-menu-dark-600.webp" data-srcset="assets/img/49-menu-dark-300.webp 300w, assets/img/49-menu-dark-600.webp 600w" sizes="(max-width: 899px) 39vw, 19vw" class="phone" alt="The main menu of 49: the Daily Challenge, game styles and the three modes with your best results" width="600" height="1304">
+          <img data-src="assets/img/49-classic-dark-600.webp" data-srcset="assets/img/49-classic-dark-300.webp 300w, assets/img/49-classic-dark-600.webp 600w" sizes="(max-width: 899px) 39vw, 19vw" class="phone" alt="49 mid-game: find 18 on a shuffled seven by seven board" width="600" height="1169">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="dozelight" data-name="Dozelight" data-kind="macOS and Windows app" style="--field: #1b1210; --slide-ink: #f3e3cf">
@@ -100,8 +100,8 @@
           <p class="slide-sub">Down to candlelight and pure red, on your bedtime schedule.</p>
         </div>
         <div class="shots shots-stack">
-          <img src="assets/dozelight-candlelight.jpg" alt="An evening reading page at 2000K with Dozelight’s menu open" width="1600" height="900">
-          <img src="assets/dozelight-red.jpg" alt="The same page in Red only, with no blue or green light" width="1600" height="900">
+          <img data-src="assets/img/dozelight-candlelight-1200.webp" data-srcset="assets/img/dozelight-candlelight-480.webp 480w, assets/img/dozelight-candlelight-640.webp 640w, assets/img/dozelight-candlelight-800.webp 800w, assets/img/dozelight-candlelight-1200.webp 1200w, assets/img/dozelight-candlelight-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="An evening reading page at 2000K with Dozelight’s menu open" width="1600" height="900">
+          <img data-src="assets/img/dozelight-red-1200.webp" data-srcset="assets/img/dozelight-red-480.webp 480w, assets/img/dozelight-red-640.webp 640w, assets/img/dozelight-red-800.webp 800w, assets/img/dozelight-red-1200.webp 1200w, assets/img/dozelight-red-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="The same page in Red only, with no blue or green light" width="1600" height="900">
         </div>
       </div>
       <div class="slide" aria-hidden="true" data-target="bieg" data-name="Bieg Niepodległości" data-kind="Website" style="--field: #2a0e14; --slide-ink: #f4e6d8">
@@ -110,8 +110,8 @@
           <p class="slide-sub">10&nbsp;km through Poznań on Polish Independence Day.</p>
         </div>
         <div class="shots shots-stack">
-          <img src="assets/bieg-home.jpg" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908">
-          <img src="assets/bieg-trophy-room.jpg" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000">
+          <img data-src="assets/img/bieg-home-1200.webp" data-srcset="assets/img/bieg-home-480.webp 480w, assets/img/bieg-home-640.webp 640w, assets/img/bieg-home-800.webp 800w, assets/img/bieg-home-1200.webp 1200w, assets/img/bieg-home-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908">
+          <img data-src="assets/img/bieg-trophy-room-1200.webp" data-srcset="assets/img/bieg-trophy-room-480.webp 480w, assets/img/bieg-trophy-room-640.webp 640w, assets/img/bieg-trophy-room-800.webp 800w, assets/img/bieg-trophy-room-1200.webp 1200w, assets/img/bieg-trophy-room-1600.webp 1600w" sizes="(max-width: 899px) 79vw, 33vw" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000">
         </div>
       </div>
       <button class="hero-side hero-side-prev" type="button" data-step="-1" aria-label="Previous project">
@@ -145,7 +145,7 @@
       <div class="reel-player" id="film">
         <div class="reel-media" data-rise>
           <!-- Phones get the vertical cut; the script keeps the poster in step and plays it only while it is on screen -->
-          <video poster="assets/reel.jpg?v=2" data-poster-phone="assets/reel-vertical.jpg?v=2" width="1920" height="1080" muted loop playsinline preload="none" controls aria-label="A 22-second film of my work: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości website, ending with a QR code to the contact form">
+          <video data-poster="assets/img/reel-1600.webp" data-poster-phone="assets/img/reel-vertical-720.webp" width="1920" height="1080" muted loop playsinline preload="none" controls aria-label="A 22-second film of my work: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości website, ending with a QR code to the contact form">
             <source src="assets/reel-vertical.mp4?v=3" type="video/mp4" media="(max-width: 899px)">
             <source src="assets/reel.mp4?v=3" type="video/mp4">
           </video>
@@ -175,8 +175,8 @@
       <article class="project" id="mulembe">
         <div class="project-media" style="--field: #15171b" data-rise>
           <div class="shots shots-stack">
-            <img src="assets/mulembe-midnight.jpg" alt="Mulembe’s grid of four panes, one agent in each, with an orange pane waiting for an answer" width="1600" height="900" loading="lazy">
-            <img src="assets/mulembe-git.jpg" alt="A pane on its own git branch, with the list of changed files and the diff beside it" width="1600" height="900" loading="lazy">
+            <img src="assets/img/mulembe-midnight-1200.webp" srcset="assets/img/mulembe-midnight-480.webp 480w, assets/img/mulembe-midnight-640.webp 640w, assets/img/mulembe-midnight-800.webp 800w, assets/img/mulembe-midnight-1200.webp 1200w, assets/img/mulembe-midnight-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Mulembe’s grid of four panes, one agent in each, with an orange pane waiting for an answer" width="1600" height="900" loading="lazy">
+            <img src="assets/img/mulembe-git-1200.webp" srcset="assets/img/mulembe-git-480.webp 480w, assets/img/mulembe-git-640.webp 640w, assets/img/mulembe-git-800.webp 800w, assets/img/mulembe-git-1200.webp 1200w, assets/img/mulembe-git-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="A pane on its own git branch, with the list of changed files and the diff beside it" width="1600" height="900" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -189,7 +189,7 @@
 
       <article class="project" id="forty-nine">
         <div class="project-media project-video" style="--field: #c8a062" data-rise>
-          <video poster="assets/49-promo.jpg" data-poster-phone="assets/49-promo-mobile.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="The 49 launch video: find 1 to 49, points and combos, races against friends, the Daily Challenge and special days">
+          <video data-poster="assets/img/49-promo-1280.webp" data-poster-phone="assets/img/49-promo-mobile-720.webp" width="1280" height="720" muted loop playsinline preload="none" aria-label="The 49 launch video: find 1 to 49, points and combos, races against friends, the Daily Challenge and special days">
             <source src="assets/49-promo-mobile.mp4" type="video/mp4" media="(max-width: 899px)">
             <source src="assets/49-promo.mp4" type="video/mp4">
           </video>
@@ -209,8 +209,8 @@
       <article class="project" id="dozelight">
         <div class="project-media" style="--field: #1b1210" data-rise>
           <div class="shots shots-stack">
-            <img src="assets/dozelight-darkroom.jpg" alt="Darkroom: the page turns black with red text, with Dozelight’s filters menu open" width="1600" height="900" loading="lazy">
-            <img src="assets/dozelight-schedule.jpg" alt="Dozelight’s sleep schedule: bedtime 11 PM, wake up 7 AM, with Auto on" width="1600" height="900" loading="lazy">
+            <img src="assets/img/dozelight-darkroom-1200.webp" srcset="assets/img/dozelight-darkroom-480.webp 480w, assets/img/dozelight-darkroom-640.webp 640w, assets/img/dozelight-darkroom-800.webp 800w, assets/img/dozelight-darkroom-1200.webp 1200w, assets/img/dozelight-darkroom-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Darkroom: the page turns black with red text, with Dozelight’s filters menu open" width="1600" height="900" loading="lazy">
+            <img src="assets/img/dozelight-schedule-1200.webp" srcset="assets/img/dozelight-schedule-480.webp 480w, assets/img/dozelight-schedule-640.webp 640w, assets/img/dozelight-schedule-800.webp 800w, assets/img/dozelight-schedule-1200.webp 1200w, assets/img/dozelight-schedule-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="Dozelight’s sleep schedule: bedtime 11 PM, wake up 7 AM, with Auto on" width="1600" height="900" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -224,8 +224,8 @@
       <article class="project" id="bieg">
         <div class="project-media" style="--field: #2a0e14" data-rise>
           <div class="shots shots-stack">
-            <img src="assets/bieg-home.jpg" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908" loading="lazy">
-            <img src="assets/bieg-trophy-room.jpg" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000" loading="lazy">
+            <img src="assets/img/bieg-home-1200.webp" srcset="assets/img/bieg-home-480.webp 480w, assets/img/bieg-home-640.webp 640w, assets/img/bieg-home-800.webp 800w, assets/img/bieg-home-1200.webp 1200w, assets/img/bieg-home-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="The Bieg Niepodległości homepage: the race name, date, start time and a countdown over the start line" width="1600" height="908" loading="lazy">
+            <img src="assets/img/bieg-trophy-room-1200.webp" srcset="assets/img/bieg-trophy-room-480.webp 480w, assets/img/bieg-trophy-room-640.webp 640w, assets/img/bieg-trophy-room-800.webp 800w, assets/img/bieg-trophy-room-1200.webp 1200w, assets/img/bieg-trophy-room-1600.webp 1600w" sizes="(max-width: 899px) 71vw, 42vw" alt="The trophy room: the 2024 medal, a golden royal sceptre, with every year’s medal below" width="1600" height="1000" loading="lazy">
           </div>
         </div>
         <div class="project-text">
@@ -283,7 +283,7 @@
     <section class="letter" id="about" aria-labelledby="about-title">
       <div class="letter-head">
         <h2 id="about-title" data-rise>One person, the whole&nbsp;way</h2>
-        <img class="portrait" src="assets/artur.jpg" alt="Artur doing a one-arm handstand in front of the Umiejętności Jutra AI 3.0 wall" width="1400" height="1165" loading="lazy" data-rise>
+        <img class="portrait" src="assets/img/artur-800.webp" srcset="assets/img/artur-480.webp 480w, assets/img/artur-640.webp 640w, assets/img/artur-800.webp 800w, assets/img/artur-1400.webp 1400w" sizes="(max-width: 899px) 86vw, 36vw" alt="Artur doing a one-arm handstand in front of the Umiejętności Jutra AI 3.0 wall" width="1400" height="1165" loading="lazy" data-rise>
         <p class="sign" data-rise><span><a href="https://www.linkedin.com/in/arturperec/" rel="me" aria-label="Artur Pereć on LinkedIn" translate="no">Artur Pereć</a></span><span>Apps and websites, built with AI agents</span></p>
       </div>
       <div class="letter-body">
@@ -350,6 +350,6 @@
     Back to the top
   </button>
 
-  <script src="script.js?v=12" defer></script>
+  <script src="script.js?v=14" defer></script>
 </body>
 </html>

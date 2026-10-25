@@ -37,14 +37,36 @@ function showSlide(index) {
   stage.style.setProperty('--stage-ink', slide.style.getPropertyValue('--slide-ink'))
 }
 
+// The first slide's picture comes with the page; the other three wait for the page to load, or for the visitor
+function whenLoaded(run) {
+  if (document.readyState === 'complete') run()
+  else addEventListener('load', run, { once: true })
+}
+
+function wakeSlides() {
+  document.querySelectorAll('.slide img[data-src]').forEach(img => {
+    img.srcset = img.dataset.srcset
+    img.src = img.dataset.src
+    img.removeAttribute('data-srcset')
+    img.removeAttribute('data-src')
+  })
+}
+
+whenLoaded(wakeSlides)
+
 function goTo(index) {
+  wakeSlides()
   showSlide((index + slides.length) % slides.length)
   stopSlides()
   startSlides()
 }
 
+// The slideshow starts turning once the visitor is there: the first move, scroll, touch or key.
+// Until then the first screen stays still, so it is finished the moment it has painted.
+let slidesArmed = false
+
 function startSlides() {
-  if (reduceMotion || paused || timer) return
+  if (reduceMotion || paused || timer || !slidesArmed) return
   timer = setInterval(() => showSlide((current + 1) % slides.length), 6000)
 }
 
@@ -92,6 +114,7 @@ function releaseSlide(slide) {
 }
 
 stage.addEventListener('touchstart', event => {
+  wakeSlides()
   if (event.touches.length !== 1 || drag?.settling) return
   drag = { x: event.touches[0].clientX, y: event.touches[0].clientY, dx: 0, t: performance.now(), axis: null, step: 0, side: null }
 }, { passive: true })
@@ -173,7 +196,14 @@ new IntersectionObserver(([entry]) => {
 }, { threshold: 0.6 }).observe(stage)
 
 document.addEventListener('visibilitychange', () => (document.hidden ? stopSlides() : startSlides()))
-startSlides()
+const firstSigns = ['pointermove', 'pointerdown', 'wheel', 'scroll', 'keydown', 'touchstart']
+function armSlides() {
+  firstSigns.forEach(type => removeEventListener(type, armSlides, true))
+  slidesArmed = true
+  wakeSlides()
+  startSlides()
+}
+firstSigns.forEach(type => addEventListener(type, armSlides, { capture: true, passive: true }))
 requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('is-ready')))
 
 // Site bar: it slides in once the hero (which has its own nav) is behind, and marks the project being read
@@ -209,8 +239,9 @@ const videoSound = document.querySelector('.video-sound')
 let videoPaused = reduceMotion
 let videoVisible = false
 
-// Phones get the vertical cut, so they get its poster too
-if (matchMedia('(max-width: 899px)').matches) video.poster = video.dataset.posterPhone
+// Phones get the vertical cut, so they get its poster too; only the one this screen needs is fetched
+const phoneScreen = matchMedia('(max-width: 899px)').matches
+video.poster = phoneScreen ? video.dataset.posterPhone : video.dataset.poster
 
 function syncVideo() {
   if (videoVisible && !videoPaused) {
@@ -260,7 +291,7 @@ let reelVisible = false
 reel.controls = false
 reelToggle.parentElement.hidden = false
 reelSpeaker.hidden = false
-if (matchMedia('(max-width: 899px)').matches) reel.poster = reel.dataset.posterPhone
+reel.poster = phoneScreen ? reel.dataset.posterPhone : reel.dataset.poster
 
 // The poster is the film's title card, 2.6 seconds in. The film loads a screen ahead and waits there,
 // so the first play carries on from the poster instead of jumping back to the empty opening.
@@ -274,7 +305,8 @@ function primeReel() {
   if (reel.currentTime < REEL_POSTER_AT) reel.currentTime = REEL_POSTER_AT
 }
 
-new IntersectionObserver(([entry]) => { if (entry.isIntersecting) primeReel() }, { rootMargin: '100% 0px' }).observe(reel)
+// Only once the page itself has loaded, so the film never competes with the first screen
+whenLoaded(() => new IntersectionObserver(([entry]) => { if (entry.isIntersecting) primeReel() }, { rootMargin: '50% 0px' }).observe(reel))
 
 function syncReel() {
   if (reelVisible && !reelPaused) {
