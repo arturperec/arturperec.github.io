@@ -49,9 +49,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Every size is in rem, so the whole page grows with the window past 1600 × 1000: a big monitor shows the laptop
-   layout, larger. The height caps it too, so an ultrawide screen doesn't blow the type past what fits. */
-html { font-size: max(100%, min(1vw, 1.6svh)); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: var(--bar-h); }
+/* Every size is in rem, so the whole page grows with the window past 1600px: a big monitor shows the laptop
+   layout, larger. Only an ultrawide screen (wider than 2:1 after the browser's bars) is capped by its height. */
+html { font-size: max(100%, min(1vw, 2svh)); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: var(--bar-h); }
 
 :root { --bar-h: 3.5rem; }
 
@@ -819,7 +819,7 @@ a, button, label { touch-action: manipulation; }
 
 .portrait { width: 100%; height: auto; }
 
-.letter-body { grid-column: 7 / 13; }
+.letter-body { grid-column: 7 / 13; max-width: 33em; } /* a laptop's line length on every screen, so the letter ends with the photo */
 
 .letter-body p { margin: 0 0 1.2em; line-height: 1.55; }
 .letter-body p:last-child { margin-bottom: 0; }
