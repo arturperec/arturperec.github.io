@@ -16,13 +16,15 @@
   <link rel="alternate" hreflang="pl" href="https://arturperec.github.io/pl/">
   <link rel="alternate" hreflang="x-default" href="https://arturperec.github.io/">
   <meta name="theme-color" content="#f7f9fa">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d7480'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='19' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <!-- The script flag, and the theme the visitor picked last time, set before the first paint -->
+  <script>document.documentElement.classList.add('js'); try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet">
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="../style.css?v=5">
+  <link rel="stylesheet" href="../style.css?v=9">
 </head>
 <body>
   <a class="skip" href="#work">Przejdź do projektów</a>
@@ -48,7 +50,8 @@
       </ul>
     </details>
     <span class="site-bar-end">
-      <a class="lang-switch" href="../" hreflang="en">PL<span class="sr-only">, zmień na angielski</span></a>
+      <a class="lang-switch" href="../" hreflang="en" lang="en" aria-label="English">EN</a>
+      <button class="theme-switch" type="button" aria-label="Ciemny motyw" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <a class="site-bar-contact" href="#contact">Kontakt</a>
     </span>
   </nav>
@@ -60,7 +63,8 @@
         <a class="wordmark" href="#about" translate="no">Artur Pereć</a>
         <span class="hero-nav-end">
           <a href="#contact">Kontakt</a>
-          <a class="lang-switch" href="../" hreflang="en">PL<span class="sr-only">, zmień na angielski</span></a>
+          <a class="lang-switch" href="../" hreflang="en" lang="en" aria-label="English">EN</a>
+          <button class="theme-switch" type="button" aria-label="Ciemny motyw" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
         </span>
       </nav>
       <div class="hero-copy">
@@ -280,10 +284,10 @@
       <div class="letter-head">
         <h2 id="about-title" data-rise>Jedna osoba, przez całą&nbsp;drogę</h2>
         <img class="portrait" src="../assets/artur.jpg" alt="Artur robi stanie na jednej ręce przed ścianką Umiejętności Jutra AI 3.0" width="1400" height="1165" loading="lazy" data-rise>
-        <p class="sign" data-rise><span>Artur Pereć</span><span>Aplikacje i strony, tworzone z agentami AI</span></p>
+        <p class="sign" data-rise><span><a href="https://www.linkedin.com/in/arturperec/" rel="me" aria-label="Artur Pereć na LinkedIn" translate="no">Artur Pereć</a></span><span>Aplikacje i strony, tworzone z agentami AI</span></p>
       </div>
       <div class="letter-body">
-        <p data-rise>Tworzę małe, starannie dopracowane oprogramowanie, głównie na platformy Apple, i prowadzę każdy produkt przez całą drogę: projekt produktu, programowanie, stronę, wpis w App Store, opisy wydań i wsparcie.</p>
+        <p data-rise>Tworzę starannie dopracowane oprogramowanie, głównie na platformy Apple, i prowadzę każdy produkt przez całą drogę: projekt produktu, programowanie, stronę, wpis w App Store, opisy wydań i wsparcie.</p>
         <p data-rise>Najważniejsza jest dla mnie kreatywność. Gdy agenci AI biorą na siebie najcięższą pracę, mój czas idzie w sam pomysł: co zrobić, jak ma działać i jakie drobiazgi sprawią, że ludzie będą chcieli do tego wracać.</p>
         <p data-rise>Zaczynałem jako programista, od gier w Unity i VR, potem Java, C# i Swift. Dziś kieruję zespołem agentów AI do programowania: wyznaczam kierunek produktu, piszę specyfikacje, uruchamiam kilku agentów równolegle i przeglądam każdą zmianę, zanim trafi do użytkowników. Tak jedna osoba prowadzi naraz aplikację na Maca, grę na iPhone’a, wersję na Windowsa i cztery strony internetowe.</p>
         <p data-rise>Każda z tych aplikacji zaczęła się od czegoś, czego sam potrzebowałem. Pracuję z kilkoma agentami AI naraz, więc zbudowałem terminal właśnie do tego. Night Shift o północy nie był dość ciepły, więc Dozelight idzie dalej. Minutę treningu skupienia łatwiej utrzymać niż dwadzieścia, więc partia 49 trwa mniej więcej minutę.</p>
@@ -346,6 +350,6 @@
     Wróć na górę
   </button>
 
-  <script src="../script.js?v=5" defer></script>
+  <script src="../script.js?v=9" defer></script>
 </body>
 </html>

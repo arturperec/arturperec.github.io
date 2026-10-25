@@ -7,7 +7,10 @@
   --muted: #536168;
   --accent: #0d7480;
   --accent-ink: #ffffff;
+  --accent-hover: #0a5f69;
   --field-light: #ffffff;
+  --line: #c4ced3;
+  color-scheme: light;
 
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
@@ -28,6 +31,13 @@
 :root:has(input[value="1600"]:checked) { --tint: rgb(255 115 0); --kelvin: "1600K"; }
 :root:has(input[value="1200"]:checked) { --tint: rgb(255 86 0); --kelvin: "1200K"; }
 :root:has(input[value="red"]:checked) { --tint: rgb(255 0 0); --kelvin: "Red"; }
+
+/* Dark: the same slate, at night. Everyone starts in light; the theme button switches (the pick sits on <html data-theme>) */
+:root[data-theme="dark"] {
+  --bg: #0e1518; --surface: #162024; --ink: #e4ebee; --muted: #98a8af;
+  --accent: #5bbfc8; --accent-ink: #062024; --accent-hover: #86d3da;
+  --field-light: #1b272c; --line: #34444b; color-scheme: dark;
+}
 
 /* The Polish page reads the menu bar the way Dozelight's Polish version does */
 :root:lang(pl) { --kelvin: "Wył."; }
@@ -66,10 +76,11 @@ a, button, label { touch-action: manipulation; }
   padding: 12px 20px;
   background: var(--accent);
   color: var(--accent-ink);
+  opacity: 0; /* invisible until reached by keyboard, also in the bounce above the page */
   transform: translateY(-200%);
 }
 
-.skip:focus { transform: none; }
+.skip:focus { opacity: 1; transform: none; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -92,7 +103,7 @@ a, button, label { touch-action: manipulation; }
   transition: transform .2s var(--ease), background-color .2s;
 }
 
-.button:hover { background: #0a5f69; }
+.button:hover { background: var(--accent-hover); }
 .button:active { transform: scale(.97); }
 
 /* ---------- Site bar ---------- */
@@ -146,7 +157,7 @@ a, button, label { touch-action: manipulation; }
   transition: background-color .2s, transform .2s var(--ease);
 }
 
-.site-bar .site-bar-contact:hover { background: #0a5f69; color: var(--accent-ink); }
+.site-bar .site-bar-contact:hover { background: var(--accent-hover); color: var(--accent-ink); }
 .site-bar-contact:active { transform: scale(.97); }
 
 .site-bar-menu { display: none; }
@@ -183,10 +194,31 @@ a, button, label { touch-action: manipulation; }
 .hero-nav a:hover { color: var(--accent); }
 .hero-nav a:first-child { justify-self: start; }
 .hero-nav a:last-child { justify-self: end; }
-.hero-nav-end { justify-self: end; display: flex; gap: 24px; }
+.hero-nav-end { justify-self: end; display: flex; align-items: center; gap: 24px; }
 
 /* EN / PL: the other language, named in that language */
 .lang-switch { color: var(--muted); }
+
+/* The moon turns the page dark, the sun turns it light again */
+.theme-switch {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s;
+}
+
+.theme-switch:hover { color: var(--accent); }
+.theme-switch[hidden] { display: none; } /* it only shows once the script can run it */
+.theme-switch svg { width: 20px; height: 20px; fill: currentColor; }
+.theme-switch .theme-sun,
+.theme-switch[aria-pressed="true"] .theme-moon { display: none; }
+.theme-switch[aria-pressed="true"] .theme-sun { display: block; }
 
 .wordmark { font-size: var(--step-lead); letter-spacing: -0.03em; }
 
@@ -333,7 +365,7 @@ a, button, label { touch-action: manipulation; }
   content: "";
   width: 8px;
   height: 8px;
-  background: #c4ced3;
+  background: var(--line);
   transition: background-color .2s, transform .2s var(--ease);
 }
 
@@ -392,7 +424,7 @@ a, button, label { touch-action: manipulation; }
 }
 
 .back-top.is-shown { opacity: 1; transform: none; }
-.back-top:hover { background: #0a5f69; }
+.back-top:hover { background: var(--accent-hover); }
 .back-top svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ---------- Work ---------- */
@@ -520,7 +552,7 @@ a, button, label { touch-action: manipulation; }
   display: block;
   width: 40px;
   height: 24px;
-  background: #c4ced3;
+  background: var(--line);
   transition: background-color .2s;
 }
 
@@ -719,7 +751,7 @@ a, button, label { touch-action: manipulation; }
   height: 4px;
   margin-top: -2px;
   overflow: hidden;
-  background: #c4ced3;
+  background: var(--line);
 }
 
 .reel-fill { height: 100%; background: var(--accent); transform: scaleX(var(--p, 0)); transform-origin: left; }
@@ -761,7 +793,7 @@ a, button, label { touch-action: manipulation; }
   margin: clamp(96px, 10vw, 160px) var(--m) 0;
   scroll-margin-top: var(--m);
   padding: clamp(48px, 7vw, 112px) clamp(24px, 5vw, 80px);
-  background: var(--ink);
+  background: #1f3038;
   color: #e6eef1;
 }
 
@@ -781,6 +813,8 @@ a, button, label { touch-action: manipulation; }
 .sign { display: flex; flex-direction: column; gap: 2px; margin: 0; }
 .sign span:first-child { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.02em; }
 .sign span:last-child { color: #a9bac1; font-size: var(--step-small); }
+.sign a { transition: color .2s; }
+.sign a:hover { color: #a9bac1; } /* the name leads to LinkedIn */
 
 /* ---------- Contact ---------- */
 
@@ -834,7 +868,7 @@ a, button, label { touch-action: manipulation; }
 }
 
 .ask button svg { width: 20px; height: 20px; fill: currentColor; transition: transform .2s var(--ease); }
-.ask button:hover { background: #0a5f69; }
+.ask button:hover { background: var(--accent-hover); }
 .ask-send:hover svg { transform: translateX(2px); }
 .ask-next:hover svg { transform: translateY(2px); }
 .ask button:active { transform: scale(.94); }
@@ -912,7 +946,9 @@ a, button, label { touch-action: manipulation; }
   /* The hero nav carries the language switch too, so the name takes the space left between the ends */
   .hero-nav { grid-template-columns: auto 1fr auto; gap: 12px; }
   .hero-nav .wordmark { justify-self: center; }
-  .hero-nav-end { gap: 16px; }
+  .hero-nav-end { gap: 8px; }
+  .hero-nav-end > a:first-child { margin-right: 4px; }
+  .theme-switch { width: 28px; }
 
   .hero-bar-kind { display: none; }
   .hero-side { width: 36px; height: 72px; }
@@ -962,6 +998,15 @@ a, button, label { touch-action: manipulation; }
   .footer { grid-template-columns: 1fr; gap: 8px; margin-top: 120px; padding-bottom: 24px; }
   .footer p:last-child { justify-self: start; }
   .footer nav { justify-content: flex-start; }
+}
+
+/* Phones keep the theme button in the hero only, so the bar keeps the name on one line and Contact on screen */
+@media (max-width: 479px) {
+  .site-bar .theme-switch { display: none; }
+}
+
+@media (max-width: 359px) {
+  .hero-nav { gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

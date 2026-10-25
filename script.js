@@ -380,3 +380,25 @@ try {
     addEventListener('load', () => { if (Math.abs(scrollY - settled) < 2) goTo() }, { once: true })
   }
 } catch {}
+
+// Theme: everyone starts in light; the button switches to dark and back, and the pick is remembered on this device
+const root = document.documentElement
+const themeButtons = document.querySelectorAll('.theme-switch')
+const themeColor = document.querySelector('meta[name="theme-color"]')
+
+function drawTheme() {
+  const dark = root.dataset.theme === 'dark'
+  themeButtons.forEach(button => button.setAttribute('aria-pressed', String(dark)))
+  themeColor.content = dark ? '#0e1518' : '#f7f9fa' // the browser's own bars follow the page
+}
+
+themeButtons.forEach(button => {
+  button.hidden = false
+  button.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'
+    try { localStorage.setItem('theme', root.dataset.theme) } catch {}
+    drawTheme()
+  })
+})
+
+drawTheme()
