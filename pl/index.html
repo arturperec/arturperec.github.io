@@ -7,7 +7,7 @@
   <meta name="description" content="Artur Pereć tworzy aplikacje na Maca, Windowsa i iPhone’a oraz ich strony: Mulembe, 49 - Focus Booster, Dozelight i stronę Biegu Niepodległości RUNPOLAND.">
   <meta property="og:title" content="Artur Pereć · Aplikacje na Maca, iPhone’a, Windowsa i strony">
   <meta property="og:description" content="Mulembe, 49 - Focus Booster, Dozelight i Bieg Niepodległości RUNPOLAND.">
-  <meta property="og:image" content="https://arturperec.github.io/assets/og-pl.jpg?v=3">
+  <meta property="og:image" content="https://arturperec.github.io/assets/og-pl.jpg?v=4">
   <meta property="og:image:width" content="2400">
   <meta property="og:image:height" content="1260">
   <meta property="og:image:alt" content="Artur Pereć: aplikacje i strony od A do Z. Aplikacje na Maca, Windowsa i iPhone’a, a do każdej z nich strona internetowa, obok Mulembe, 49 - Focus Booster, Dozelight i strony Biegu Niepodległości">
@@ -30,7 +30,7 @@
   <link rel="preload" as="image" imagesrcset="../assets/img/mulembe-overview-480.webp 480w, ../assets/img/mulembe-overview-640.webp 640w, ../assets/img/mulembe-overview-800.webp 800w, ../assets/img/mulembe-overview-1200.webp 1200w, ../assets/img/mulembe-overview-1600.webp 1600w" imagesizes="(max-width: 899px) 82vw, 41vw" fetchpriority="high">
   <link rel="preload" href="../assets/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="../style.css?v=16">
+  <link rel="stylesheet" href="../style.css?v=17">
   <!-- Who this is and what he made, for search engines and AI assistants: the person, the four products and the film -->
   <script type="application/ld+json">
   {
@@ -68,7 +68,7 @@
         "dateModified": "2026-10-25",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://arturperec.github.io/assets/og-pl.jpg?v=3",
+          "url": "https://arturperec.github.io/assets/og-pl.jpg?v=4",
           "width": 2400,
           "height": 1260
         }
@@ -172,6 +172,8 @@
   </script>
 </head>
 <body>
+  <!-- The flag of this page's language, for the language switch: drawn here because Windows shows no flag emoji -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"><symbol id="flag" viewBox="0 0 24 16"><path d="M0 0h24v8H0z" fill="#fff"/><path d="M0 8h24v8H0z" fill="#dc143c"/></symbol></svg>
   <a class="skip" href="#work">Przejdź do projektów</a>
   <!-- Dozelight demo: the radios live at the top so :has() can tint the whole page from anywhere -->
   <div class="page-tint" aria-hidden="true"></div>
@@ -195,7 +197,7 @@
       </ul>
     </details>
     <span class="site-bar-end">
-      <a class="lang-switch" href="../" hreflang="en" lang="en" aria-label="English">EN</a>
+      <a class="lang-switch" href="../" hreflang="en" title="English"><svg class="flag" aria-hidden="true"><use href="#flag"/></svg><span class="sr-only">Polski, przełącz na angielski</span></a>
       <button class="theme-switch" type="button" aria-label="Ciemny motyw" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <a class="site-bar-contact" href="#contact">Kontakt</a>
     </span>
@@ -208,7 +210,7 @@
         <a class="wordmark" href="#about" translate="no">Artur Pereć</a>
         <span class="hero-nav-end">
           <a href="#contact">Kontakt</a>
-          <a class="lang-switch" href="../" hreflang="en" lang="en" aria-label="English">EN</a>
+          <a class="lang-switch" href="../" hreflang="en" title="English"><svg class="flag" aria-hidden="true"><use href="#flag"/></svg><span class="sr-only">Polski, przełącz na angielski</span></a>
           <button class="theme-switch" type="button" aria-label="Ciemny motyw" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
         </span>
       </nav>
@@ -495,6 +497,6 @@
     Wróć na górę
   </button>
 
-  <script src="../script.js?v=16" defer></script>
+  <script src="../script.js?v=17" defer></script>
 </body>
 </html>

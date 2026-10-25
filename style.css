@@ -201,8 +201,10 @@ a, button, label { touch-action: manipulation; }
 .hero-nav a:last-child { justify-self: end; }
 .hero-nav-end { justify-self: end; display: flex; align-items: center; gap: 1.5rem; }
 
-/* EN / PL: the other language, named in that language */
-.lang-switch { color: var(--muted); }
+/* The flag of the page's language; a click opens the other one */
+.lang-switch { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.lang-switch .flag { display: block; width: 1.375rem; height: .9375rem; outline: 1px solid var(--line); transition: transform .2s var(--ease); } /* the hairline keeps the white of the Polish flag visible on the page */
+.lang-switch:hover .flag { transform: scale(1.1); }
 
 /* The moon turns the page dark, the sun turns it light again */
 .theme-switch {
@@ -975,7 +977,7 @@ a, button, label { touch-action: manipulation; }
   .site-bar-menu ul a { display: flex; align-items: center; min-height: 3rem; }
   .site-bar-contact { min-height: 2.25rem; padding: 0 .875rem; }
   .site-bar-end { gap: .5rem; }
-  .site-bar-end .lang-switch { padding: 0 .25rem; }
+  .site-bar-end .lang-switch { padding: 0 .125rem; }
   /* The hero nav carries the language switch too, so the name takes the space left between the ends */
   .hero-nav { grid-template-columns: auto 1fr auto; gap: .75rem; }
   .hero-nav .wordmark { justify-self: center; }

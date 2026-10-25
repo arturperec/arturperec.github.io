@@ -7,10 +7,10 @@
   <meta name="description" content="Artur Pereć makes apps for Mac, Windows and iPhone, and their websites: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości RUNPOLAND website.">
   <meta property="og:title" content="Artur Pereć · Mac, iPhone and Windows apps and websites">
   <meta property="og:description" content="Mulembe, 49 - Focus Booster, Dozelight and Bieg Niepodległości RUNPOLAND.">
-  <meta property="og:image" content="https://arturperec.github.io/assets/og-en.jpg?v=3">
+  <meta property="og:image" content="https://arturperec.github.io/assets/og-en.jpg?v=4">
   <meta property="og:image:width" content="2400">
   <meta property="og:image:height" content="1260">
-  <meta property="og:image:alt" content="Artur Pereć: apps and websites, start to finish. Apps for Mac, Windows and iPhone, and the website that goes with each one, beside Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości website">
+  <meta property="og:image:alt" content="Artur Pereć: apps and websites, start to finish. Apps for Mac, Windows and iPhone, and the website that goes with each one, beside Mulembe’s agent panes, 49 - Focus Booster, Dozelight and the Bieg Niepodległości website">
   <meta property="og:url" content="https://arturperec.github.io/">
   <meta property="og:site_name" content="Artur Pereć">
   <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +30,7 @@
   <link rel="preload" as="image" imagesrcset="assets/img/mulembe-overview-480.webp 480w, assets/img/mulembe-overview-640.webp 640w, assets/img/mulembe-overview-800.webp 800w, assets/img/mulembe-overview-1200.webp 1200w, assets/img/mulembe-overview-1600.webp 1600w" imagesizes="(max-width: 899px) 82vw, 41vw" fetchpriority="high">
   <link rel="preload" href="assets/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
   <!-- Who this is and what he made, for search engines and AI assistants: the person, the four products and the film -->
   <script type="application/ld+json">
   {
@@ -68,7 +68,7 @@
         "dateModified": "2026-10-25",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://arturperec.github.io/assets/og-en.jpg?v=3",
+          "url": "https://arturperec.github.io/assets/og-en.jpg?v=4",
           "width": 2400,
           "height": 1260
         }
@@ -172,6 +172,8 @@
   </script>
 </head>
 <body>
+  <!-- The flag of this page's language, for the language switch: drawn here because Windows shows no flag emoji -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"><symbol id="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="flag-gb-t"><path d="M30 15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#flag-gb-t)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></symbol></svg>
   <a class="skip" href="#work">Skip to the work</a>
   <!-- Dozelight demo: the radios live at the top so :has() can tint the whole page from anywhere -->
   <div class="page-tint" aria-hidden="true"></div>
@@ -195,7 +197,7 @@
       </ul>
     </details>
     <span class="site-bar-end">
-      <a class="lang-switch" href="pl/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+      <a class="lang-switch" href="pl/" hreflang="pl" title="Polski"><svg class="flag" aria-hidden="true"><use href="#flag"/></svg><span class="sr-only">English, switch to Polish</span></a>
       <button class="theme-switch" type="button" aria-label="Dark theme" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <a class="site-bar-contact" href="#contact">Contact</a>
     </span>
@@ -208,7 +210,7 @@
         <a class="wordmark" href="#about" translate="no">Artur Pereć</a>
         <span class="hero-nav-end">
           <a href="#contact">Contact</a>
-          <a class="lang-switch" href="pl/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+          <a class="lang-switch" href="pl/" hreflang="pl" title="Polski"><svg class="flag" aria-hidden="true"><use href="#flag"/></svg><span class="sr-only">English, switch to Polish</span></a>
           <button class="theme-switch" type="button" aria-label="Dark theme" aria-pressed="false" hidden><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
         </span>
       </nav>
@@ -495,6 +497,6 @@
     Back to the top
   </button>
 
-  <script src="script.js?v=16" defer></script>
+  <script src="script.js?v=17" defer></script>
 </body>
 </html>
