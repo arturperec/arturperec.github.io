@@ -913,6 +913,23 @@ a, button, label { touch-action: manipulation; }
 .contact-rows dd { margin: 0; }
 .contact-rows a:hover { color: var(--accent); }
 
+/* ---------- Page not found ---------- */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100svh;
+  padding: var(--m) clamp(1.5rem, 8vw, 8rem);
+}
+
+.not-found-code { margin: 0 0 1rem; color: var(--accent); font-size: var(--step-lead); font-weight: 500; }
+.not-found h1 { font-size: var(--step-display); line-height: .95; }
+.not-found > p { max-width: 40ch; margin: 2rem 0; }
+.not-found .not-found-pl { margin: 3rem 0 0; color: var(--muted); font-size: var(--step-small); }
+.not-found-pl a { color: var(--ink); }
+
 /* ---------- Footer ---------- */
 
 .footer {

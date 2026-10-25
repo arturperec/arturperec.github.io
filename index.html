@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Pereć · Apps and websites</title>
+  <title>Artur Pereć · Mac, iPhone and Windows apps and websites</title>
   <meta name="description" content="Artur Pereć makes apps for Mac, Windows and iPhone, and their websites: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości RUNPOLAND website.">
-  <meta property="og:title" content="Artur Pereć · Apps and websites">
+  <meta property="og:title" content="Artur Pereć · Mac, iPhone and Windows apps and websites">
   <meta property="og:description" content="Mulembe, 49 - Focus Booster, Dozelight and Bieg Niepodległości RUNPOLAND.">
   <meta property="og:image" content="https://arturperec.github.io/assets/mulembe-midnight.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Mulembe on a Mac at midnight: AI coding agents working side by side in a grid of terminal panes">
+  <meta property="og:url" content="https://arturperec.github.io/">
+  <meta property="og:site_name" content="Artur Pereć">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="pl_PL">
@@ -24,7 +30,146 @@
   <link rel="preload" as="image" imagesrcset="assets/img/mulembe-overview-480.webp 480w, assets/img/mulembe-overview-640.webp 640w, assets/img/mulembe-overview-800.webp 800w, assets/img/mulembe-overview-1200.webp 1200w, assets/img/mulembe-overview-1600.webp 1600w" imagesizes="(max-width: 899px) 82vw, 41vw" fetchpriority="high">
   <link rel="preload" href="assets/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Bump ?v= on each deploy, so no browser pairs a new page with an old cached stylesheet or script -->
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
+  <!-- Who this is and what he made, for search engines and AI assistants: the person, the four products and the film -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://arturperec.github.io/#website",
+        "url": "https://arturperec.github.io/",
+        "name": "Artur Pereć",
+        "inLanguage": [
+          "en",
+          "pl"
+        ],
+        "publisher": {
+          "@id": "https://arturperec.github.io/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://arturperec.github.io/#page",
+        "url": "https://arturperec.github.io/",
+        "name": "Artur Pereć · Mac, iPhone and Windows apps and websites",
+        "description": "Artur Pereć makes apps for Mac, Windows and iPhone, and their websites: Mulembe, 49 - Focus Booster, Dozelight and the Bieg Niepodległości RUNPOLAND website.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://arturperec.github.io/#website"
+        },
+        "mainEntity": {
+          "@id": "https://arturperec.github.io/#person"
+        },
+        "about": {
+          "@id": "https://arturperec.github.io/#person"
+        },
+        "dateModified": "2026-10-25",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://arturperec.github.io/assets/mulembe-midnight.jpg",
+          "width": 1600,
+          "height": 900
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://arturperec.github.io/#person",
+        "name": "Artur Pereć",
+        "url": "https://arturperec.github.io/",
+        "image": "https://arturperec.github.io/assets/img/artur-800.webp",
+        "jobTitle": "App and website developer",
+        "description": "I’m Artur Pereć. I make apps for Mac, Windows and iPhone, and the website that goes with each one.",
+        "email": "mailto:artur.g.perec@gmail.com",
+        "knowsLanguage": [
+          "en",
+          "pl"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/arturperec/",
+          "https://github.com/arturperec"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://arturperec.github.io/#mulembe",
+        "name": "Mulembe",
+        "url": "https://mulembe-app.github.io/",
+        "description": "A calm, native Mac terminal for running Claude Code, Codex and other AI coding agents side by side. Panes arrange themselves in a grid, turn orange when an agent needs you, and keep running through crashes and restarts. Every pane can use its own Claude account and its own git branch.",
+        "author": {
+          "@id": "https://arturperec.github.io/#person"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00",
+          "priceCurrency": "USD"
+        },
+        "additionalType": "https://schema.org/SoftwareApplication"
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://arturperec.github.io/#forty-nine",
+        "name": "49 - Focus Booster",
+        "url": "https://49game.github.io/",
+        "description": "A one-minute focus game for iPhone. Find the numbers 1 to 49 in order on a shuffled board, as fast as you can. Ranks, a new Daily Challenge every day, ghost races against friends, Game Center leaderboards and iCloud sync, in nine languages.",
+        "author": {
+          "@id": "https://arturperec.github.io/#person"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "additionalType": "https://schema.org/MobileApplication"
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://arturperec.github.io/#dozelight",
+        "name": "Dozelight",
+        "url": "https://dozelight.github.io/",
+        "description": "A tiny menu bar app that takes the screen warmer than Night Shift allows, down to candlelight and pure red. It follows your bedtime, or dusk and dawn, so the evening warms up on its own. On Mac and Windows, in English and Polish.",
+        "author": {
+          "@id": "https://arturperec.github.io/#person"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        "additionalType": "https://schema.org/SoftwareApplication"
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://arturperec.github.io/#bieg",
+        "name": "Bieg Niepodległości RUNPOLAND website",
+        "url": "https://biegniepodleglosci.pl/",
+        "description": "The website of a 10 km run through the streets of Poznań on Polish Independence Day, 11 November. A custom WordPress theme with a race-day countdown and a trophy room for every medal since 2016, plus the page content, SEO, a PHP 8 upgrade and a full UX pass.",
+        "inLanguage": "pl",
+        "additionalType": "https://schema.org/WebSite",
+        "author": {
+          "@id": "https://arturperec.github.io/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://arturperec.github.io/#film",
+        "name": "Artur Pereć: the short version",
+        "description": "All four products in twenty-two seconds, made with AI agents from this page’s own code, music included.",
+        "inLanguage": "en",
+        "thumbnailUrl": [
+          "https://arturperec.github.io/assets/img/reel-1600.webp"
+        ],
+        "contentUrl": "https://arturperec.github.io/assets/reel.mp4",
+        "uploadDate": "2026-10-25",
+        "duration": "PT22S",
+        "author": {
+          "@id": "https://arturperec.github.io/#person"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#work">Skip to the work</a>
@@ -350,6 +495,6 @@
     Back to the top
   </button>
 
-  <script src="script.js?v=14" defer></script>
+  <script src="script.js?v=15" defer></script>
 </body>
 </html>

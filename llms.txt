@@ -1,0 +1,24 @@
+# Artur Pereć
+
+> Artur Pereć makes apps for Mac, Windows and iPhone, and the website that goes with each one. He takes each product the whole way: product design, engineering, website, App Store listing, release notes and support, working with a team of AI coding agents.
+
+This site is his portfolio, in English and Polish. It shows four products, a 22-second film of all four, and a contact form. He also takes on larger IT projects and AI integration for companies, websites, apps, design and courses.
+
+## Pages
+
+- [Portfolio (English)](https://arturperec.github.io/): the four products, the film, an about section and the contact form
+- [Portfolio (Polish)](https://arturperec.github.io/pl/): the same page in Polish
+
+## Work
+
+- [Mulembe](https://mulembe-app.github.io/): a calm, native Mac terminal for running Claude Code, Codex and other AI coding agents side by side. macOS app; 14 days free, then $19 once
+- [49 - Focus Booster](https://49game.github.io/): a one-minute focus game for iPhone, finding 1 to 49 in order on a shuffled board. Free, in open beta on TestFlight
+- [Dozelight](https://dozelight.github.io/): a menu bar app that warms the screen past Night Shift, down to candlelight and pure red. macOS and Windows; 14 days free, then $9.99 once
+- [Bieg Niepodległości RUNPOLAND](https://biegniepodleglosci.pl/): the website of a 10 km run through Poznań on Polish Independence Day; custom WordPress theme, content, SEO and UX
+
+## Contact
+
+- [Contact form](https://arturperec.github.io/#contact): the fastest way to reach him
+- [LinkedIn](https://www.linkedin.com/in/arturperec/)
+- [GitHub](https://github.com/arturperec)
+- Email: artur.g.perec@gmail.com
