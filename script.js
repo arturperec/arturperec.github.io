@@ -68,14 +68,85 @@ document.querySelectorAll('.hero-stage [data-step]').forEach(arrow => {
   arrow.addEventListener('click', () => goTo(current + Number(arrow.dataset.step)))
 })
 
-let touchX = null
-stage.addEventListener('touchstart', event => { touchX = event.touches[0].clientX }, { passive: true })
-stage.addEventListener('touchend', event => {
-  if (touchX === null) return
-  const dx = event.changedTouches[0].clientX - touchX
-  touchX = null
-  if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1))
-})
+// Swipe: the slide follows the finger with the next one beside it, and letting go snaps to the nearer one.
+// A flick counts too. Up-and-down drags are left to the page's scroll.
+let drag = null
+
+function holdSlide(slide, x) {
+  slide.style.transition = 'none'
+  slide.style.visibility = 'visible'
+  slide.style.opacity = '1'
+  slide.style.transform = `translateX(${x}px)`
+}
+
+function releaseSlide(slide) {
+  // Back to what the classes say, without the crossfade noticing: a slide that is not showing hides before it moves home
+  slide.style.transition = 'none'
+  if (!slide.classList.contains('is-active')) {
+    slide.style.opacity = '0'
+    slide.style.visibility = 'hidden'
+  }
+  slide.style.transform = ''
+  getComputedStyle(slide).opacity // apply that now, so dropping the inline styles below changes nothing to animate
+  requestAnimationFrame(() => slide.removeAttribute('style'))
+}
+
+stage.addEventListener('touchstart', event => {
+  if (event.touches.length !== 1 || drag?.settling) return
+  drag = { x: event.touches[0].clientX, y: event.touches[0].clientY, dx: 0, t: performance.now(), axis: null, step: 0, side: null }
+}, { passive: true })
+
+stage.addEventListener('touchmove', event => {
+  if (!drag || drag.settling) return
+  const dx = event.touches[0].clientX - drag.x
+  const dy = event.touches[0].clientY - drag.y
+  if (!drag.axis) {
+    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return
+    drag.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'
+    if (drag.axis === 'x') stopSlides()
+  }
+  if (drag.axis !== 'x') return
+  const width = stage.offsetWidth
+  const step = dx < 0 ? 1 : -1
+  if (step !== drag.step) {
+    if (drag.side) releaseSlide(drag.side)
+    drag.step = step
+    drag.side = slides[(current + step + slides.length) % slides.length]
+  }
+  drag.dx = dx
+  drag.t2 = performance.now()
+  holdSlide(slides[current], dx)
+  holdSlide(drag.side, dx + step * width)
+}, { passive: true })
+
+function endDrag() {
+  if (!drag || drag.settling) return
+  if (drag.axis !== 'x' || !drag.side) { drag = null; return }
+  const width = stage.offsetWidth
+  const speed = Math.abs(drag.dx) / Math.max(1, (drag.t2 || performance.now()) - drag.t)
+  const turn = Math.abs(drag.dx) > width * 0.25 || (speed > 0.5 && Math.abs(drag.dx) > 24)
+  const from = slides[current]
+  const side = drag.side
+  const step = drag.step
+  const ease = reduceMotion ? 'none' : 'transform .45s cubic-bezier(.2, .7, .2, 1)'
+  drag.settling = true
+  from.style.transition = side.style.transition = ease
+  from.style.transform = `translateX(${turn ? -step * width : 0}px)`
+  side.style.transform = `translateX(${turn ? 0 : step * width}px)`
+  const settle = () => {
+    // The new slide is already in place, so the classes change with nothing left to fade
+    if (turn) showSlide((current + step + slides.length) % slides.length)
+    releaseSlide(from)
+    releaseSlide(side)
+    drag = null
+    startSlides()
+  }
+  if (reduceMotion) settle()
+  else setTimeout(settle, 460)
+}
+
+stage.addEventListener('touchend', endDrag)
+stage.addEventListener('touchcancel', endDrag)
 
 // The bar's project name jumps to that project; a button then offers the way back
 const backTop = document.querySelector('.back-top')
@@ -112,10 +183,10 @@ const siteMenu = siteBar.querySelector('.site-bar-menu')
 // It reads where the hero really is rather than trusting the observer's entry, which can be stale during a reload
 const hero = document.querySelector('.hero')
 new IntersectionObserver(() => {
-  const past = hero.getBoundingClientRect().bottom <= 64
+  const past = hero.getBoundingClientRect().bottom <= siteBar.offsetHeight
   siteBar.classList.toggle('is-shown', past)
   if (!past) siteMenu.open = false
-}, { rootMargin: '-64px 0px 0px 0px' }).observe(hero)
+}, { rootMargin: `-${siteBar.offsetHeight}px 0px 0px 0px`, threshold: [0, .05, .1] }).observe(hero)
 
 const watchProject = new IntersectionObserver(entries => entries.forEach(entry => {
   siteBar.querySelectorAll(`a[href="#${entry.target.id}"]`).forEach(link =>
