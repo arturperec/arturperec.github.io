@@ -134,6 +134,7 @@ a, button, label { touch-action: manipulation; }
 }
 
 .js .site-bar.is-shown { visibility: visible; transform: none; transition-delay: 0s; }
+.js:not(.is-ready) .site-bar { transition: none; } /* no slide during the first paint, e.g. a reload restoring the place */
 
 .site-bar a { text-decoration: none; transition: color .2s; }
 .site-bar a:hover { color: var(--accent); }

@@ -109,10 +109,13 @@ requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement
 const siteBar = document.querySelector('.site-bar')
 const siteMenu = siteBar.querySelector('.site-bar-menu')
 
-new IntersectionObserver(([entry]) => {
-  siteBar.classList.toggle('is-shown', !entry.isIntersecting)
-  if (entry.isIntersecting) siteMenu.open = false
-}, { rootMargin: '-64px 0px 0px 0px' }).observe(document.querySelector('.hero'))
+// It reads where the hero really is rather than trusting the observer's entry, which can be stale during a reload
+const hero = document.querySelector('.hero')
+new IntersectionObserver(() => {
+  const past = hero.getBoundingClientRect().bottom <= 64
+  siteBar.classList.toggle('is-shown', past)
+  if (!past) siteMenu.open = false
+}, { rootMargin: '-64px 0px 0px 0px' }).observe(hero)
 
 const watchProject = new IntersectionObserver(entries => entries.forEach(entry => {
   siteBar.querySelectorAll(`a[href="#${entry.target.id}"]`).forEach(link =>
@@ -188,9 +191,23 @@ reelToggle.parentElement.hidden = false
 reelSpeaker.hidden = false
 if (matchMedia('(max-width: 899px)').matches) reel.poster = reel.dataset.posterPhone
 
+// The poster is the film's title card, 2.6 seconds in. The film loads a screen ahead and waits there,
+// so the first play carries on from the poster instead of jumping back to the empty opening.
+const REEL_POSTER_AT = 2.6
+let reelPrimed = false
+
+function primeReel() {
+  if (reelPrimed) return
+  reelPrimed = true
+  reel.preload = 'auto'
+  if (reel.currentTime < REEL_POSTER_AT) reel.currentTime = REEL_POSTER_AT
+}
+
+new IntersectionObserver(([entry]) => { if (entry.isIntersecting) primeReel() }, { rootMargin: '100% 0px' }).observe(reel)
+
 function syncReel() {
   if (reelVisible && !reelPaused) {
-    reel.preload = 'auto'
+    primeReel()
     reel.play().catch(() => {})
   } else {
     reel.pause()
