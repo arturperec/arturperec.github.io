@@ -11,7 +11,7 @@ This site is his portfolio, in English and Polish. It shows four products, a 22-
 
 ## Work
 
-- [Mulembe](https://mulembe-app.github.io/): a calm, native Mac terminal for running Claude Code, Codex and other AI coding agents side by side. macOS app; 14 days free, then $19 once
+- [Mulembe](https://mulembe-app.github.io/): a calm, native Mac terminal for running Claude Code, Codex and other AI coding agents side by side. macOS app; 14 days free, then from $2.99 a month
 - [49 - Focus Booster](https://49game.github.io/): a one-minute focus game for iPhone, finding 1 to 49 in order on a shuffled board. Free, in open beta on TestFlight
 - [Dozelight](https://dozelight.github.io/): a menu bar app that warms the screen past Night Shift, down to candlelight and pure red. macOS and Windows; 14 days free, then $9.99 once
 - [Bieg Niepodległości RUNPOLAND](https://biegniepodleglosci.pl/): the website of a 10 km run through Poznań on Polish Independence Day; custom WordPress theme, content, SEO and UX
