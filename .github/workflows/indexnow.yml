@@ -1,0 +1,61 @@
+# Tells IndexNow (Bing, Yandex, Naver, Seznam, Yep, Amazon) which pages changed in a push,
+# once GitHub Pages has built that commit, so the crawl sees the new version.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - pl/index.html
+  workflow_dispatch: # by hand: both pages
+
+permissions:
+  pages: read
+
+env:
+  HOST: arturperec.github.io
+  KEY: bf58780c6ab6df732c0e249688678f77
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pages that changed
+        id: urls
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            files=$'index.html\npl/index.html'
+          else
+            files=$(jq -r '.commits[] | (.added + .modified)[]' "$GITHUB_EVENT_PATH" | sort -u)
+          fi
+          urls=()
+          grep -qx 'index.html' <<< "$files" && urls+=("https://$HOST/")
+          grep -qx 'pl/index.html' <<< "$files" && urls+=("https://$HOST/pl/")
+          echo "${urls[@]}"
+          echo "json=$(jq -nc '$ARGS.positional' --args "${urls[@]}")" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for the Pages build of this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 40); do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds" \
+              --jq "[.[] | select(.commit == \"$GITHUB_SHA\")][0].status // \"\"")
+            echo "Pages build: ${status:-not started}"
+            [ "$status" = built ] && exit 0
+            [ "$status" = errored ] && exit 1
+            sleep 15
+          done
+          echo "Pages build did not finish in 10 minutes"
+          exit 1
+
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.json != '[]'
+        run: |
+          body=$(jq -n --arg host "$HOST" --arg key "$KEY" --argjson urls '${{ steps.urls.outputs.json }}' \
+            '{host: $host, key: $key, keyLocation: "https://\($host)/\($key).txt", urlList: $urls}')
+          code=$(curl -s -o /dev/stderr -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' -d "$body")
+          echo "IndexNow: HTTP $code"
+          [ "$code" = 200 ] || [ "$code" = 202 ]
